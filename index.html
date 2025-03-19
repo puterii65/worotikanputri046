@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .menu button {
+            margin: 5px;
+            padding: 10px;
+        }
+        .about {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <button onclick="alert('File menu clicked')">File</button>
+        <button onclick="alert('Edit menu clicked')">Edit</button>
+        <button onclick="validateNumber()">Run</button>
+        <button onclick="showAbout()">About Us</button>
+    </div>
+    
+    <h2>Scientific Number Validator</h2>
+    <input type="text" id="inputNumber" placeholder="Enter a number">
+    <button onclick="validateNumber()">Check</button>
+    <p id="message"></p>
+    
+    <div class="about" id="about">
+        <h3>About Us</h3>
+        <p>Nama: Putri Worotikan</p>
+        <p>NIM: 231011060046</p>
+    </div>
+    
+    <script>
+        function validateNumber() {
+            const input = document.getElementById("inputNumber").value;
+            const scientificNotationRegex = /^-?\d+(\.\d+)?([eE][-+]?\d+)?$/;
+            const message = document.getElementById("message");
+            
+            if (scientificNotationRegex.test(input)) {
+                message.innerText = "Yes, it is a number";
+                message.style.color = "green";
+            } else {
+                message.innerText = "No, it is not a number";
+                message.style.color = "red";
+            }
+        }
+        
+        function showAbout() {
+            const aboutSection = document.getElementById("about");
+            aboutSection.style.display = aboutSection.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
+
+
